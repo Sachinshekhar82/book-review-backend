@@ -20,6 +20,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/books', require('./routes/bookRoutes'));
 app.use('/api/reviews', require('./routes/reviewRoutes'));
+app.get('/', (req, res) => {
+  res.send('Backend Book Review API running');
+});
 
 // Health check
 app.get('/api/health', (req, res) => {
