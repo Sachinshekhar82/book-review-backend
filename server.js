@@ -2,10 +2,8 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db');
-app.use(cors({
-  origin: ['https://book-review-frontend-i1iz.vercel.app/'],
-  credentials: true,
-}));
+
+
 // Load env vars
 dotenv.config();
 
@@ -35,7 +33,10 @@ app.get('/api/health', (req, res) => {
     timestamp: new Date().toISOString()
   });
 });
-
+app.use(cors({
+  origin: ['https://book-review-frontend-i1iz.vercel.app/'],
+  credentials: true,
+}));
 // Error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
